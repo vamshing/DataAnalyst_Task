@@ -7,7 +7,7 @@
 # TABLE : tmp_overallweddings - stores the aggregated time-frame of OVERALL wedding numbers
 """
 
-query1 = """
+
 
 # var : DiffDate            - The number of days between wedding created and the wedding date 
 # col : Active_weddings     - Aggregated number of active wedding sin the given time frame
@@ -89,8 +89,7 @@ ORDER BY is_viral_wedding desc
 ) as q
 group by DiffDate
 )
-"""
-query2 = """
+
 
 # col : DiffDate            - The number of days between wedding created and the wedding date 
 # col : num_weddings        -  Overall weddings in the given time frame
@@ -110,9 +109,7 @@ and b.is_admin = 'S'
 group by DiffDate
 order by num_weddings desc
 )
-"""
 
-query3 = """
 #----------------------------------------THE FINAL RESULTS TABLE---------------------------------------
 
 # col : Active_percent       -  Percent active weddings in the given time frame
@@ -128,4 +125,4 @@ b.num_weddings
 
 from tmp_output a 
 inner join tmp_overallweddings b on a.DiffDate = b.DiffDate
-"""
+
